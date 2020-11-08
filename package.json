@@ -3,16 +3,31 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@tensorflow-models/mobilenet": "^2.0.4",
+    "@tensorflow/tfjs": "^2.7.0",
+    "@tensorflow/tfjs-converter": "^2.0.0-rc.4",
+    "@tensorflow/tfjs-core": "^2.7.0",
     "@testing-library/jest-dom": "^5.11.5",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "autoprefixer": "^8.1.0",
+    "axios": "^0.21.0",
+    "firebase": "^8.0.1",
+    "formik": "^2.2.3",
+    "framer-motion": "^2.9.4",
+    "postcss-cli": "^8.2.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-infinite-scroll-component": "^5.1.0",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.0",
-    "web-vitals": "^0.2.4"
+    "tailwindcss": "^1.9.6",
+    "web-vitals": "^0.2.4",
+    "yup": "^0.29.3"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "build:styles": "postcss src/assets/css/tailwind.css -o src/assets/css/style.css",
+    "start": "npm run build:styles && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
