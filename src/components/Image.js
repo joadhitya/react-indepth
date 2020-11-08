@@ -5,7 +5,7 @@ import useTensorflow from "../utils/hooks/useTensorflow";
 function Image({ index, image, handleRemove, show }) {
   const [isHovering, setIsHovering] = useState(false);
   const imageRef = useRef();
-  const [predict, predictions, setPredictions, isLoading] = useTensorflow();
+  const { predict, predictions, setPredictions, isLoading } = useTensorflow();
 
   return (
     <div

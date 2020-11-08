@@ -21,5 +21,5 @@ export default function useTensorflow() {
 
 
 
-  return [predict, predictions, setPredictions, isLoading];
+  return {predict, predictions, setPredictions, isLoading};
 }
