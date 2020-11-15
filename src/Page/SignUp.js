@@ -1,14 +1,11 @@
 import React from "react";
-import { useState } from "react/cjs/react.development";
-import { Redirect, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import firebase from "../config/firebase";
-import { ErrorMessage, Field, Form, Formik, useFormik } from "formik";
+import { ErrorMessage, Field, Form, Formik } from "formik";
 import * as Yup from "yup";
 
-
 export default function SignUp() {
-  const formik = useFormik({});
-  const history = useHistory()
+  const history = useHistory();
   return (
     <Formik
       initialValues={{ email: "", password: "" }}
@@ -17,10 +14,10 @@ export default function SignUp() {
           .auth()
           .createUserWithEmailAndPassword(value.email, value.password)
           .then((res) => {
-            history.replace('/')
+            history.replace("/");
           })
           .catch(function (error) {
-            formikBag.setFieldError("email", error.message );
+            formikBag.setFieldError("email", error.message);
           });
       }}
       validationSchema={Yup.object({

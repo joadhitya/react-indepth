@@ -1,11 +1,10 @@
-import { AnimatePresence, motion } from "framer-motion";
 import React, { useState } from "react";
 import { useRef } from "react/cjs/react.development";
 import useTensorflow from "../utils/hooks/useTensorflow";
 function Image({ index, image, handleRemove, show }) {
   const [isHovering, setIsHovering] = useState(false);
   const imageRef = useRef();
-  const { predict, predictions, setPredictions, isLoading } = useTensorflow();
+  const { predict, predictions, setPredictions } = useTensorflow();
 
   return (
     <div
@@ -18,7 +17,6 @@ function Image({ index, image, handleRemove, show }) {
           onClick={() => setPredictions({})}
           className="absolute bg-gray-300 text-black rounded-md shadow px-2 left-0 ml-5"
         >
-          {/* {isLoading && <p>Loading...</p>} */}
           {predictions.map((prediction) => (
             <div className="flex justify-between">
               <p>{prediction.className}</p>

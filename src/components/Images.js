@@ -1,10 +1,8 @@
-import Axios from "axios";
 import { AnimatePresence, AnimateSharedLayout, motion } from "framer-motion";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 import useDebounce from "../utils/hooks/useDebounce";
 import useFetchImage from "../utils/hooks/useFetchImage";
-// import useScroll from "../utils/hooks/useScroll";
 import Image from "./Image";
 import Loading from "./Loading";
 
@@ -15,31 +13,6 @@ export default function Images() {
     page,
     searchTerm
   );
-  // const scrollPosition = useScroll();
-
-  // useEffect(() => {
-  //   console.log(scrollPosition)
-  //   if (scrollPosition >= document.body.offsetHeight - window.innerHeight) {
-  //     console.log(document.body.offsetHeight - window.innerHeight)
-  //   }
-  // }, [scrollPosition]);
-
-  // useEffect(() => {
-  //   if (scrollPosition >= document.body.offsetHeight - window.innerHeight) {
-  //     setPage(page + 1);
-  //   }
-  // }, [scrollPosition]);
-
-  const [newImageUrl, setNewImageUrl] = useState("");
-
-  // const inputRef = useRef(null);
-
-  // const varRef = useRef(images.length);
-
-  // useEffect(() => {
-  //   inputRef.current.focus();
-  // }, []);
-
   function ShowImage() {
     const [showPreview, setShowPreview] = useState(false);
     return (
@@ -97,20 +70,7 @@ export default function Images() {
     debounce(() => setSearchTerm(text), 1000);
   }
 
-  function handleAdd() {
-    if (newImageUrl !== "") {
-      setImages([...images, newImageUrl]);
-      setNewImageUrl("");
-    }
-    ShowImage();
-  }
-
-  function handleChange(event) {
-    setNewImageUrl(event.target.value);
-  }
-
   function handleRemove(index) {
-    // setImages(images.filter((image, i) => i !== index));
     setImages([
       ...images.slice(0, index),
       ...images.slice(index + 1, images.length),
@@ -132,42 +92,7 @@ export default function Images() {
           <p className="m-auto">{errors[0]}</p>
         </div>
       )}
-      {/* style={{ columnCount: 5 }} */}
       <ShowImage />
-
-      {/* {errors.length == 0 && (
-        <button
-          onClick={() => {
-            setPage(page + 1);
-          }}
-        >
-          Load More
-        </button>
-      )} */}
-
-      {/* <div className="flex justify-center my-5">
-        <div className="w-full">
-          <input
-          id="inputBox"
-          type="text"
-          ref={inputRef}
-          className="p-2 border border-gray-800 shadow rounded w-full"
-          onChange={handleChange}
-          value={newImageUrl}
-          />
-          </div>
-          <div className="">
-          <button
-          disabled={newImageUrl === ""}
-          className={`p-2  text-white ml-2 ${
-            newImageUrl !== "" ? "bg-green-600" : "bg-green-200"
-          }`}
-          onClick={handleAdd}
-          >
-          Add
-          </button>
-        </div>
-      </div> */}
       {isLoading && <Loading />}
     </section>
   );

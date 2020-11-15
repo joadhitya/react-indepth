@@ -4,7 +4,6 @@ import {
   BrowserRouter as Router,
   Route,
   Switch,
-  Redirect,
   useLocation,
 } from "react-router-dom";
 import routes from "./utils/routes/index";
@@ -12,7 +11,6 @@ import Header from "./components/Header";
 import firebase from "./config/firebase";
 import AppContext from "./store/AppContext";
 import AuthRoute from "./utils/routes/AuthRoute";
-import Login from "./Page/Login";
 import GuestRoute from "./utils/routes/GuestRoute";
 import Loading from "./components/Loading";
 import NotFound from "./Page/404";
@@ -39,30 +37,6 @@ function App() {
       }
     });
   }, []);
-
-  // const [title, setTitle] = useState("Halo");
-  // const [isShowing, setIsShowing] = useState(false);
-  // const [didMount, setDidMount] = useState(false);
-  // const mountRef = useRef(false);
-
-  // Component Did Mount
-  // useEffect(() => {
-  //   setDidMount(true);
-  //   console.log("App Mountet");
-  // }, []);
-
-  // Component Will Update
-  // useEffect(() => {
-  //   if (mountRef.current) {
-  //     console.log("Update 2");
-  //   } else {
-  //     mountRef.current = true;
-  //   }
-  // }, [isShowing]);
-
-  // function handleClick() {
-  //   setIsShowing(!isShowing);
-  // }
   const location = useLocation();
 
   if (isLoading) return <Loading />;

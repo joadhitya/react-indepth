@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react/cjs/react.development";
-import { Redirect, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import firebase from "../config/firebase";
 
 export default function Login() {
@@ -33,17 +33,13 @@ export default function Login() {
   function handleInput(e) {
     setForm({ ...form, [e.target.name]: e.target.value });
   }
-
-  // if (isLoggedIn){
-  //   history.push("/");
-  // } 
     
 
   return (
     <div className="flex h-screen bg-red-100">
       <div className="m-auto w-1/3 text-white flex flex-wrap justify-center shadow-lg rounded-lg bg-gradient-to-tr from-blue-200 to-red-300">
         <h1 className="w-full text-4xl tracking-widest text-center my-5">
-          Login
+          Login {isLoggedIn}
         </h1>
         <form className="m-5 w-10/12" onSubmit={handleForm}>
           {error !== "" && <p>{error}</p>}

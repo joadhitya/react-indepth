@@ -1,4 +1,3 @@
-import React from "react";
 import "@tensorflow/tfjs";
 import * as mobilenet from "@tensorflow-models/mobilenet";
 import { useState } from "react/cjs/react.development";

@@ -1,5 +1,4 @@
 import Axios from "axios";
-import React from "react";
 import { useEffect, useState } from "react/cjs/react.development";
 
 const api = process.env.REACT_APP_UNSPLASH_API;
@@ -8,8 +7,8 @@ export default function useFetchImage(page, searchTerm) {
   const [images, setImages] = useState([]);
   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const apiProd = `${api}/search/photos?client_id=${secret}&page=${page}&query=${searchTerm}`;
-  const apiDev = process.env.REACT_APP_UNSPLASH_LOCAL;
+  // const apiProd = `${api}/search/photos?client_id=${secret}&page=${page}&query=${searchTerm}`;
+  // const apiDev = process.env.REACT_APP_UNSPLASH_LOCAL;
 
   function fetch() {
     const url =

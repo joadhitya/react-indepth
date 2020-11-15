@@ -1,9 +1,6 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef } from "react";
 import "@tensorflow/tfjs";
-import * as mobilenet from "@tensorflow-models/mobilenet";
-import { useState } from "react/cjs/react.development";
 import useTensorflow from "../utils/hooks/useTensorflow";
-// import * as mobilenet from "@tensorflow-models/mobilenet";
 
 export default function Tensorflow() {
   const imageRef = useRef();

@@ -1,25 +1,13 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { useEffect, useState, useContext } from "react";
+import { useContext } from "react";
 import firebase from "../config/firebase";
 import { useHistory } from "react-router-dom";
 import AppContext from "../store/AppContext";
 
 export default function Header() {
-  const [isLoggedIn, user] = useContext(AppContext);
-  // const [isLoggedIn, setIsLoggedIn] = useState(false);
-  // const [user, setUser] = useState({});
+  const [isLoggedIn] = useContext(AppContext);
   const history = useHistory();
-
-  // useEffect(() => {
-  //   firebase.auth().onAuthStateChanged((user) => {
-  //     if (user) {
-  //       setIsLoggedIn(true);
-  //       setUser(user);
-  //       // setUser(user);
-  //     }
-  //   });
-  // }, []);
 
   function logout() {
     firebase

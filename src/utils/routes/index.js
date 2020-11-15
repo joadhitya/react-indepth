@@ -9,31 +9,31 @@ export default [
     path: "/",
     exact: true,
     component: () => <Home />,
-    protected: 'none'
+    protected: "none",
   },
   {
     path: "/gallery",
     exact: false,
     component: () => <Gallery />,
-    protected: 'auth'
+    protected: "auth",
   },
-  
+
   {
     path: "/login",
     exact: false,
     component: () => <Login />,
-    protected: 'guest'
+    protected: "guest",
   },
   {
     path: "/signup",
     exact: false,
     component: () => <SignUp />,
-    protected: 'guest'
+    protected: "guest",
   },
   {
     path: "/tensorflow",
     exact: false,
     component: () => <Tensorflow />,
-    protected: 'none'
+    protected: "none",
   },
 ];
